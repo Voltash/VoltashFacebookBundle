@@ -1,4 +1,3 @@
-
 #Security Routing
 fb_app_login:
     pattern:   /login
@@ -10,7 +9,3 @@ fb_app_logout:
 fb_app_fix_safari:
     pattern:   /fix-safari/
     defaults:  { _controller: FbAppBundle:Security:safariFix }
-#App Routing
-fb_app_index:
-    pattern:  /
-    defaults:  { _controller: FbAppBundle:Default:index }

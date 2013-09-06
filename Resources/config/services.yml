@@ -34,7 +34,3 @@ services:
         class: Voltash\FbApplicationBundle\Util\AppStat
         arguments: [@doctrine.orm.entity_manager, %fb_app.user_class%]
 
-#services:
-#    fb_app.example:
-#        class: %fb_app.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

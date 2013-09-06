@@ -32,12 +32,5 @@ class SecurityController extends Controller
         $session->set('fix', 'fix safari');
         return new Response('<script>top.location.href= "'.$url.'";</script>',200, array('content-type' => 'text/html'));
     }
-    
-    public function testAction()
-    {
-        echo '<pre>';
-        var_dump($this->getUser()->getSid());
-        die;
-        return new Response('ok');
-    }
+
 }
