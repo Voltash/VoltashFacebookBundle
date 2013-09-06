@@ -1,0 +1,40 @@
+parameters:
+
+services:
+    fb.security.authentication.provider:
+        class: Voltash\FbApplicationBundle\Auth\Provider\FbProvider
+        arguments: [@security.user.provider.concrete.fb_provider, @fb.sdk]
+    fb.security.authentication.listener:
+        class: Voltash\FbApplicationBundle\Auth\Firewall\FbListener
+        parent: security.authentication.listener.abstract
+        abstract: true
+        arguments: [%fb_app.app%, @fb.url.helper, %fb_app.page%]
+    fb.sdk:
+        class: Voltash\FbApplicationBundle\Util\Facebook\Facebook
+        arguments: [%fb_app.app%]
+    fb.url.helper:
+        class: Voltash\FbApplicationBundle\Util\UrlHelper
+        arguments: [%fb_app.app%]
+    fb.user_sdk:
+        class: Voltash\FbApplicationBundle\Util\Facebook\FacebookUser
+        arguments: [@fb.sdk]
+    fb.user_manager:
+        class: Voltash\FbApplicationBundle\Entity\UserManager
+        arguments: [@doctrine.orm.entity_manager, %fb_app.user_class%]
+    fb.user_provider:
+        class: Voltash\FbApplicationBundle\Security\UserProvider
+        arguments: [@fb.user_manager]
+    fb.kernel.listener:
+        class: Voltash\FbApplicationBundle\Listener\FbRequestListener
+        arguments: [@router, %fb_app.fan%, %fb_app.app%, %fb_app.page%, @fb.url.helper, @security.context, @http_kernel]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+    fb.stat:
+        class: Voltash\FbApplicationBundle\Util\AppStat
+        arguments: [@doctrine.orm.entity_manager, %fb_app.user_class%]
+
+#services:
+#    fb_app.example:
+#        class: %fb_app.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

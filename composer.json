@@ -1,0 +1,28 @@
+{
+    "name": "voltash/upload-bundle",
+    "description": "Facebook application skeleton for symfony 2",
+    "keywords": ["facebook","symfony 2", "voltash"],
+    "homepage": "http://elert.ru",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Volodymyr Elert",
+            "email": "vova@elert.ru"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "~2.3",
+            "twig/twig":                "~1.5"
+        },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "Voltash\\FbApplicationBundle": "" }
+        },
+    "target-dir": "voltash/facebook-bundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.x-dev"
+        }
+    }
+}
