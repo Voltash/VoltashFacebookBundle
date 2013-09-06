@@ -7,7 +7,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
- *
+ * @ORM\MappedSuperclass
  */
 class User implements UserInterface
 {
