@@ -19,7 +19,7 @@
     "autoload": {
         "psr-0": { "Voltash\\FbApplicationBundle": "" }
         },
-    "target-dir": "voltash/facebook-bundle",
+    "target-dir": "Voltash/FbApplicationBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "2.2.x-dev"
