@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  * Stat
  *
  * @ORM\Table(name="stat")
- * @ORM\Entity(repositoryClass="Voltash\FbApplicationBundle\Entity\Repository\StatRepository")
  */
 class Stat
 {
